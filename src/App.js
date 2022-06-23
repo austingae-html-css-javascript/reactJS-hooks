@@ -1,25 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function App() {
-
-  const [color, setColor] = useState("blue");
-
-  let changeBGColor = () => {
-    setColor(document.querySelector(".color-input").value);
-  }
-
-  useEffect(() => {
-    console.log("Running...");
-  })
-
+  let [count, setCount] = useState(0);
+  let [showParagraph, setShowParagraph] = useState(true);
   return (
-    <main style={{backgroundColor:color}}>
-      <input className='color-input'></input>
-    <button onClick={changeBGColor}>Click Me!</button>
-    </main>
+    <>
+      <h1>{count}</h1>
+      <button 
+        onClick={() => {
+          setCount((prevCount) => prevCount + 1);
+          setShowParagraph(!showParagraph);
+        }}>
+        Click Me
+      </button>
+
+      {showParagraph && <p>I Am Here!</p>}
+      
+    </>
   );
 }
 
@@ -44,30 +44,5 @@ export default App;
 */
 
 /*
-import logo from './logo.svg';
-import './App.css';
 
-import { useState } from "react";
-
-function App() {
-  let [count, setCount] = useState(0);
-  let [showParagraph, setShowParagraph] = useState(true);
-  return (
-    <>
-      <h1>{count}</h1>
-      <button 
-        onClick={() => {
-          setCount((prevCount) => prevCount + 1);
-          setShowParagraph(!showParagraph);
-        }}>
-        Click Me
-      </button>
-
-      {showParagraph && <p>I Am Here!</p>}
-      
-    </>
-  );
-}
-
-export default App;
 */
