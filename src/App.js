@@ -1,68 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { useReducer } from "react";
+import { useState, useEffect } from "react";
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "Increment":
-      return {
-        count: state.count + 1,
-        showText: state.showText
-      }
-
-    case "Decrement":
-      return {
-        count: state.count - 1,
-        showText: state.showText
-      }
-
-    case "IncrementBy2": 
-      return {
-        count: state.count + 2,
-        showText: state.showText
-      }
-
-    case "OnMouseOver":
-      return {
-        count: state.count,
-        showText: true
-      }
-    case "OnMouseLeave":
-      return {
-        count: state.count,
-        showText: false
-      }
-
-    default:
-      return state;
-  }
-}
 function App() {
-  const [state, dispatch] = useReducer(reducer, {count: 0, showText: true});
+
+  const [color, setColor] = useState("blue");
+
+  let changeBGColor = () => {
+    setColor(document.querySelector(".color-input").value);
+  }
+
+  useEffect(() => {
+    console.log("Running...");
+  })
 
   return (
-    <>
-      <button 
-        onClick={() => {
-          dispatch({type: "IncrementBy2"});
-        }}
-        onMouseOver={() => {
-          dispatch({type: "OnMouseOver"})
-        }}
-
-        onMouseLeave={() => {
-          dispatch({type: "OnMouseLeave"})
-        }}
-        >
-        Click Me
-      </button>
-
-      {state.showText && <h1>{state.count}</h1>}
-
-
-
-    </>
+    <main style={{backgroundColor:color}}>
+      <input className='color-input'></input>
+    <button onClick={changeBGColor}>Click Me!</button>
+    </main>
   );
 }
 
