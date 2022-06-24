@@ -1,18 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { useRef } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 
 function App() {
 
-  const inputRef = useRef(null);
+  useEffect(() => {
+    console.log("useEffect");
+  })
 
+  useLayoutEffect(() => {
+    console.log("useLayoutEffect");
+  })
+
+  let [showMe, setShowMe] = useState(false);
   return (
     <>
-      <input type="text" placeholder="Type" ref={inputRef}></input>
-      <button onClick={() => {
-         inputRef.current.value = "";
-      }}>Change Name</button>
+      <button onClick={() => setShowMe(!showMe)}>Click Me!</button>
+      {showMe && <p>show Me!</p>}
     </>
   );
 }
