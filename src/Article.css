@@ -1,0 +1,29 @@
+* {
+  box-sizing: content-box;
+  margin: 0rem;
+}
+
+main {
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border-style: solid;
+  border-color: black;
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: rgba(0,0,0,0.7);
+}

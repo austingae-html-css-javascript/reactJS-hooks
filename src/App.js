@@ -1,29 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { useState, useEffect, useLayoutEffect } from "react";
+import Article from "./Article";
+
 
 function App() {
 
-  useEffect(() => {
-    console.log("useEffect");
-  })
-
-  useLayoutEffect(() => {
-    console.log("useLayoutEffect");
-  })
-
-  let [showMe, setShowMe] = useState(false);
   return (
-    <>
-      <button onClick={() => setShowMe(!showMe)}>Click Me!</button>
-      {showMe && <p>show Me!</p>}
-    </>
+  <div>
+    <Article title="Lorem Potter"text="Commodo cupidatat est aliquip deserunt. Laboris qui deserunt duis Lorem est proident aliquip. Anim dolore qui voluptate ullamco consectetur deserunt aliquip in anim excepteur. Veniam pariatur sit aute officia ex aliquip in enim. Non ut labore proident amet proident sit dolor."/>
+  </div>
   );
 }
 
 export default App;
-
 
 
 
