@@ -1,29 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { useState } from "react";
+import { useRef } from "react";
 
 function App() {
-  let [count, setCount] = useState(0);
-  let [showParagraph, setShowParagraph] = useState(true);
+
+  const inputRef = useRef(null);
+
   return (
     <>
-      <h1>{count}</h1>
-      <button 
-        onClick={() => {
-          setCount((prevCount) => prevCount + 1);
-          setShowParagraph(!showParagraph);
-        }}>
-        Click Me
-      </button>
-
-      {showParagraph && <p>I Am Here!</p>}
-      
+      <input type="text" placeholder="Type" ref={inputRef}></input>
+      <button onClick={() => {
+         inputRef.current.value = "";
+      }}>Change Name</button>
     </>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
 
 /*
   1) Mobile First Approach
@@ -41,8 +43,4 @@ export default App;
         - Parent Div's Width = Child Div's Width+Padding+Border+Margin
         - Parent Div's Width = Block Element's Width+Padding+Border+Margin
         - However, Parent Div's Width != Inline Element's Width+Padding+Border+Margin
-*/
-
-/*
-
 */
