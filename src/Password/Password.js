@@ -6,37 +6,38 @@ import "./Password.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { icon } from '@fortawesome/fontawesome-svg-core';
-
-
-
-
 
 const Password = () => {
-  let [icon, setIcon] = useState(faEye);
-  let [showTextOrPassword, setShowTextOrPassword] = useState("password")
+  const [eyeIcon, setEyeIcon] = useState(faEye);
+  const [showOrHidePassword, setShowOrHidePassword] = useState("password");
+
   return (
     <main>
-      <div className='login'>
-        <input className='login__box' type='text' placeholder='User' />
-        <div className='login__password-container'>
-          <input className='login__box' type={showTextOrPassword} placeholder='Password' />
-          <button className='login__eye-button' onClick={() => {
-            if (icon == faEye) {
-              setShowTextOrPassword("text");
-              setIcon(faEyeSlash);
-            }
-            else if (icon == faEyeSlash) {
-              setShowTextOrPassword("password");
-              setIcon(faEye);
-            }
-          }}><FontAwesomeIcon className='login__eye' icon={icon} size="1x" />
-          </button>
+      <div className='log-in'>
+        <div className='log-in__input-container'>
+          <input className='log-in__input' type="text" placeholder='Username' />
         </div>
-        <button className='login__button'>Log In</button>
+        <div className='log-in__input-container'>
+          <input className='log-in__input' type={showOrHidePassword} placeholder='Password' />
+          <button className='log-in__icon-button' 
+          onClick={() => {
+            if (eyeIcon == faEye) {
+              setEyeIcon(faEyeSlash);
+              setShowOrHidePassword("text");
+            }
+            else if (eyeIcon == faEyeSlash) {
+              setEyeIcon(faEye);
+              setShowOrHidePassword("password");
+            }
+          }}
+          ><FontAwesomeIcon className='log-in__icon' icon={eyeIcon} /></button>
+        </div>
+        <div>
+          <button className='log-in__button'>Log In</button>
+        </div>
       </div>
     </main>
-  )
+  );
 }
 
 export default Password
@@ -61,6 +62,6 @@ HTML & CSS & Javascript Approach:
   - Parent Div's Width = Child Div's Width+Padding+Border+Margin
   - Parent Div's Width = Block Element's Width+Padding+Border+Margin
   - However, Parent Div's Width != Inline Element's Width+Padding+Border+Margin
-  5) Javascript - 
+  5) Javascript - Yes. 
 */
 
