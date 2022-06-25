@@ -1,29 +1,30 @@
 import React from 'react'
 
-import { useState } from 'react';
-
 import "./Article.css";
 
-const Article = (props) => {
+import { useState } from "react";
 
-  let [isReadMoreButtonClicked, setIsReadMoreButtonClicked] = useState(false);
-  let [readMoreReadLessButton, setreadMoreReadLessButton] = useState("Read More")
+const Article = (props) => {
+  let [isReadMoreClicked, setIsReadMoreClicked] = useState(false);
+  let [readMoreOrReadLessButton, setReadMoreOrReadLessButton] = useState("Read More");
   return (
     <main>
-      <h2>{props.title}</h2>
-      {isReadMoreButtonClicked ? <p>{props.text}</p> : <p>{props.text.substr(0,100)}</p>}
-      <button onClick={() => {
-        if (readMoreReadLessButton == "Read More") {
-          setIsReadMoreButtonClicked(true);
-          setreadMoreReadLessButton("Read Less");
-        }
-        else if (readMoreReadLessButton == "Read Less") {
-          setIsReadMoreButtonClicked(false);
-          setreadMoreReadLessButton("Read More");
-        }
+      <div className='article'>
+        <h2 className='article__title'>{props.title}</h2>
+        {isReadMoreClicked ? <p className='article__content'>{props.text}</p> : <p className='article__content'>{props.text.substring(0,100)}</p>}
+        <button className='article__read-more-button' 
+        onClick={() => {
+          if (readMoreOrReadLessButton == "Read More") {
+            setIsReadMoreClicked(true);
+            setReadMoreOrReadLessButton("Read Less");
+          }
+          else if (readMoreOrReadLessButton == "Read Less") {
+            setIsReadMoreClicked(false);
+            setReadMoreOrReadLessButton("Read More");            
+          }
 
-
-      }}>{readMoreReadLessButton}</button>
+        }}>{readMoreOrReadLessButton}</button>
+      </div>
     </main>
   );
 }
@@ -31,8 +32,19 @@ const Article = (props) => {
 export default Article
 
 /*
-1) Mobile First Approach - Yes. 
-2) Create the HTML Layout - Yes. 
-3) Create the HTML elements - Yes. 
-4) Decorate the HTML elements in CSS - Yes. 
+HTML & CSS & Javascript Approach: 
+  1) Mobile First Approach - Yes. 
+  2) Create the HTML layout - Yes. 
+  - 
+  <section>
+    <div class="container">
+    </div>
+  </section>
+  3) Create the HTML elements - Yes. 
+  4) Decorate the HTML elements - Yes. 
+  If * {box-sizing: content-box}
+  - Parent Div's Width = Child Div's Width+Padding+Border+Margin
+  - Parent Div's Width = Block Element's Width+Padding+Border+Margin
+  - However, Parent Div's Width != Inline Element's Width+Padding+Border+Margin
+  5) Javascript - Yes. 
 */

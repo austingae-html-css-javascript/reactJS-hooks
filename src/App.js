@@ -8,7 +8,9 @@ function App() {
 
   return (
   <div>
-    <Article title="Lorem Potter"text="Commodo cupidatat est aliquip deserunt. Laboris qui deserunt duis Lorem est proident aliquip. Anim dolore qui voluptate ullamco consectetur deserunt aliquip in anim excepteur. Veniam pariatur sit aute officia ex aliquip in enim. Non ut labore proident amet proident sit dolor."/>
+    <Article title="Et aute ad consectetur culpa aute." text="Consequat quis aute ex culpa aliquip minim amet proident et. Ex laborum labore consequat ea duis aliqua labore dolor tempor laboris nostrud deserunt anim. Fugiat do pariatur qui voluptate est. Et velit aliqua irure excepteur. Irure labore sunt duis quis occaecat dolore dolore cupidatat officia dolore Lorem veniam. Qui anim commodo ea excepteur commodo elit minim sint culpa culpa anim nostrud magna.
+          Eiusmod fugiat ea elit cupidatat enim velit mollit do excepteur non sunt sint veniam sit. Elit fugiat elit id id sit aliquip est ea deserunt exercitation tempor. Irure cillum ea adipisicing cupidatat exercitation tempor culpa commodo esse nisi exercitation. Nulla cupidatat non et occaecat occaecat qui ipsum cillum esse.
+          Occaecat reprehenderit officia amet Lorem. Tempor amet fugiat aliqua reprehenderit consectetur reprehenderit consequat deserunt. Quis dolor et ea eu ad enim aliqua proident velit commodo anim. Magna mollit enim anim adipisicing elit ullamco reprehenderit occaecat adipisicing Lorem cillum. Nostrud ea amet aliqua nisi."/>
   </div>
   );
 }
