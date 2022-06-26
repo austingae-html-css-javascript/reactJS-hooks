@@ -1,14 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 
-import Article from "./Article";
-import Password from "./Password/Password";
+import PasswordStrength from './PasswordStrength/PasswordStrength';
 
 function App() {
-
   return (
-    <Password />
+    <PasswordStrength />
   );
 }
 
 export default App;
+
