@@ -5,25 +5,23 @@ import "./Article.css";
 import { useState } from "react";
 
 const Article = (props) => {
-  let [isReadMoreClicked, setIsReadMoreClicked] = useState(false);
-  let [readMoreOrReadLessButton, setReadMoreOrReadLessButton] = useState("Read More");
+  let [readMoreOrReadLessWord, setReadMoreorReadLessWord] = useState("Read More");
   return (
     <main>
-      <div className='article'>
-        <h2 className='article__title'>{props.title}</h2>
-        {isReadMoreClicked ? <p className='article__content'>{props.text}</p> : <p className='article__content'>{props.text.substring(0,100)}</p>}
-        <button className='article__read-more-button' 
+      <div className='article'> 
+        <h3 className='article__title'>{props.title}</h3>
+        {(readMoreOrReadLessWord == "Read Less") ? <p className='article__content'>{props.content}</p> : <p className='article__content'>{props.content.substring(0, 100)}</p>}
+        <button 
+        className='article__button' 
         onClick={() => {
-          if (readMoreOrReadLessButton == "Read More") {
-            setIsReadMoreClicked(true);
-            setReadMoreOrReadLessButton("Read Less");
+          if (readMoreOrReadLessWord == "Read More") {
+            setReadMoreorReadLessWord("Read Less");
           }
-          else if (readMoreOrReadLessButton == "Read Less") {
-            setIsReadMoreClicked(false);
-            setReadMoreOrReadLessButton("Read More");            
+          else if (readMoreOrReadLessWord == "Read Less") {
+            setReadMoreorReadLessWord("Read More");
           }
-
-        }}>{readMoreOrReadLessButton}</button>
+        }}
+        >{readMoreOrReadLessWord}</button>
       </div>
     </main>
   );
