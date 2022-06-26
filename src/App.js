@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 
-import Password from "./Password/Password";
+import PasswordStrength from "./PasswordStrength/PasswordStrength";
 
 function App() {
   return (
-    <Password />
+    <PasswordStrength />
   );
 }
 

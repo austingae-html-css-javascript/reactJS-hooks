@@ -1,55 +1,62 @@
-import React from 'react'
+import React from 'react';
 import { useState } from "react";
 
 import "./PasswordStrength.css";
 
 const PasswordStrength = () => {
-  let [password, setPassword] = useState("");
-  let [red, setRed] = useState("");
-  let [yellow, setYellow] = useState("");
-  let [lightGreen, setLightGreen] = useState("");
-  let [darkGreen, setDarkGreen] = useState("");
+  let [redColor, setRedColor] = useState("rgba(255,0,0,0.2)");
+  let [yellowColor, setYellowColor] = useState("rgba(255,255,0,0.2)");
+  let [greenColor, setGreenColor] = useState("rgba(0,255,0,0.2)");
+
+  let [passwordStrengthWord, setPasswordStrengthWord] = useState("");
+  let [color, setColor] = useState("rgb(0,0,0,1)");
 
   return (
     <main>
-      <div className='password-strength'>
-        <div className='password-strength__password-container'>
+      <div className='password'>
+        <div className='password__password-container'>
           <input 
-          className='password-strength__password-input' 
+          className='password__password-input'
           type="text" 
-          placeholder='Enter a Password' 
+          placeholder='Enter a New Password' 
           onChange={(event) => {
-            setPassword(event.target.value);
-            console.log(password.length)
             if (event.target.value.length == 0) {
-              setRed("");
-              setYellow("");
-              setLightGreen("");
-              setDarkGreen("");
+              setRedColor("rgba(255,0,0,0.2)");
+              setYellowColor("rgba(255,255,0,0.2)");
+              setGreenColor("rgba(0,255,0,0.2)");
+              setPasswordStrengthWord("");
+              setColor("rgba(0,0,0,1)")
             }
-            else if (password.length >= 0 && password.length <= 5) {
-              setRed("rgba(255,0,0,1)");
-              setYellow("");
+            else if (event.target.value.length <= 8) {
+              setRedColor("rgba(255,0,0,1)");
+              setYellowColor("rgba(255,255,0,0.2)");
+              setPasswordStrengthWord("Weak");
+              setColor("rgba(255,0,0,1)");
             }
-            else if (password.length > 5 && password.length <= 10) {
-              setYellow("rgb(255, 238, 0, 1)");
-              setLightGreen("");
+            else if (event.target.value.length > 8 && event.target.value.length < 16) {
+              setYellowColor("rgba(255,255,0,1)");
+              setGreenColor("rgba(0,255,0,0.2");
+              setPasswordStrengthWord("Okay");
+              setColor("rgba(255,255,0,1)");
             }
-            else if (password.length > 10 && password.length <= 20) {
-              setLightGreen("rgb(141, 255, 2, 1)");
-              setDarkGreen("");
+            else if (event.target.value.length >= 16) {
+              setGreenColor("rgba(0,255,0,1)");
+              setPasswordStrengthWord("Strong");
+              setColor("rgba(0,255,0,1)");
             }
-            else if (password.length > 20 && password.length <= 30) {
-              setDarkGreen("rgb(50, 131, 25, 1)");
-            }
-          }} />
-      </div>
-        <div className='password-strength__four-bars-container'>
-          <div className='password-strength__bar password-strength__bar--red-color' style={{backgroundColor: red}}></div>
-          <div className='password-strength__bar password-strength__bar--yellow-color' style={{backgroundColor: yellow}}></div>
-          <div className='password-strength__bar password-strength__bar--light-green-color' style={{backgroundColor: lightGreen}}></div>
-          <div className='password-strength__bar password-strength__bar--dark-green-color' style={{backgroundColor: darkGreen}}></div>
+          }}
+          />
         </div>
+        <div className='password__password-strength-container'>
+          <div className='password__password-strength-bar' style={{backgroundColor: redColor}}></div>
+          <div className='password__password-strength-bar' style={{backgroundColor: yellowColor}}></div>
+          <div className='password__password-strength-bar' style={{backgroundColor: greenColor}}></div>
+        </div>
+
+        <p style={{color: color}}><span>Password Strength: </span><span>{passwordStrengthWord}</span></p>
+
+        {(passwordStrengthWord == "Strong" && (<button>Change Password</button>))}
+
       </div>
     </main>
   );
@@ -57,10 +64,6 @@ const PasswordStrength = () => {
 
 export default PasswordStrength
 
-/*
-Whenever the password input changes, a variable must update itself to the password input change. 
-
-*/
 /*
 HTML & CSS & Javascript Approach: 
   1) Mobile First Approach - Yes. 
