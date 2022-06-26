@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 
-import PasswordStrength from "./PasswordStrength/PasswordStrength";
+import Accordion from "./Accordion/Accordion";
 
 function App() {
   return (
-    <PasswordStrength />
+    <Accordion />
   );
 }
 

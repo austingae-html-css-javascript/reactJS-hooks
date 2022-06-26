@@ -1,0 +1,17 @@
+* {
+  box-sizing: content-box;
+  margin: 0rem;
+}
+
+.accordion {
+  width: 360px;
+  margin-inline: auto;
+  /*
+  Parent Div's Width = Child Div's Width + Padding + Border + Margin
+  375px = 360px + 0px + 0px + margin-inline: auto, so (7.5px + 7.5px) 
+  */
+  margin-top: 2rem;
+}
+
+
+
