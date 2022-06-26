@@ -8,44 +8,35 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const Password = () => {
-  const [eyeIcon, setEyeIcon] = useState(faEye);
-  const [showOrHidePassword, setShowOrHidePassword] = useState("password");
-
+  let [eyeIcon, setEyeIcon] = useState(faEyeSlash);
+  let [showOrHidePassword, setShowOrHidePassword] = useState("password")
   return (
     <main>
       <div className='log-in'>
-        <div className='log-in__input-container'>
-          <input className='log-in__input' type="text" placeholder='Username' />
-        </div>
-        <div className='log-in__input-container'>
-          <input className='log-in__input' type={showOrHidePassword} placeholder='Password' />
-          <button className='log-in__icon-button' 
+        <input className='log-in__input log-in__username' type="text" placeholder='Type your User' />
+        <div className='log-in__password-container'>
+          <input className='log-in__input' type={showOrHidePassword} placeholder='Type your Password' />
+          <button 
+          className='log-in__eye-icon-button' 
           onClick={() => {
-            if (eyeIcon == faEye) {
-              setEyeIcon(faEyeSlash);
+            if (eyeIcon == faEyeSlash) {
+              setEyeIcon(faEye);
               setShowOrHidePassword("text");
             }
-            else if (eyeIcon == faEyeSlash) {
-              setEyeIcon(faEye);
-              setShowOrHidePassword("password");
+            else if (eyeIcon == faEye) {
+              setEyeIcon(faEyeSlash);
+              setShowOrHidePassword("password")
             }
-          }}
-          ><FontAwesomeIcon className='log-in__icon' icon={eyeIcon} /></button>
+          }}><FontAwesomeIcon className='log-in__eye-icon' icon={eyeIcon} />
+          </button>
         </div>
-        <div>
-          <button className='log-in__button'>Log In</button>
-        </div>
+        <button className='log-in__button'>Log In</button>
       </div>
     </main>
   );
 }
 
 export default Password
-
-/*
-When you click on the faEye, the faEye turns to faEyeSlash. And when you click the faEyeSlash, then show faEye. 
-*/
-
 
 /*
 HTML & CSS & Javascript Approach: 
